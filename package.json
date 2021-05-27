@@ -5,7 +5,8 @@
   "author": "Ian Lai <ian24257587@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "commit": "git-cz"
+    "commit": "git-cz",
+    "lint:ts": "eslint . --config .eslintrc --ext .js,.ts"
   },
   "devDependencies": {
     "@commitlint/cli": "^11.0.0",
