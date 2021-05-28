@@ -11,7 +11,8 @@
         "ecmaFeatures": {
           "jsx": true,
           "legacyDecorators": true
-        }
+        },
+        "project": "./tsconfig.eslint.json"
     },
     "plugins": [
         "react",

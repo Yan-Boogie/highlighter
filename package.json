@@ -6,15 +6,20 @@
   "license": "MIT",
   "scripts": {
     "commit": "git-cz",
-    "lint:ts": "eslint . --config .eslintrc --ext .js,.ts"
+    "lint:ts": "eslint . --config .eslintrc --ext .js,.ts",
+    "serve": "cd ./site && next -p 3001",
+    "start": "yarn serve"
   },
   "devDependencies": {
     "@commitlint/cli": "^11.0.0",
     "@commitlint/config-conventional": "^11.0.0",
+    "@types/react": "^17.0.8",
+    "@types/react-dom": "^17.0.5",
     "@typescript-eslint/eslint-plugin": "^4.15.0",
     "@typescript-eslint/parser": "^4.15.0",
     "commitizen": "^4.2.3",
     "cz-conventional-changelog": "3.3.0",
+    "emotion": "^10.0.9",
     "eslint": "^7.19.0",
     "eslint-config-airbnb-typescript": "^12.3.1",
     "eslint-plugin-import": "^2.22.1",
@@ -22,8 +27,14 @@
     "eslint-plugin-react": "^7.22.0",
     "eslint-plugin-react-hooks": "^4.2.0",
     "husky": "4",
+    "lerna": "^4.0.0",
     "lint-staged": "^10.5.4",
+    "next": "^10.2.3",
     "prettier": "^2.2.1",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "react-error-boundary": "^1.2.5",
+    "source-map-loader": "^0.2.4",
     "typescript": "^4.2.3"
   }
 }
