@@ -1,5 +1,9 @@
 {
-  "name": "react-highlighter",
+  "name": "highlighter",
+  "private": "true",
+  "workspaces": [
+    "packages/*"
+  ],
   "version": "1.0.0",
   "main": "index.js",
   "author": "Ian Lai <ian24257587@gmail.com>",
