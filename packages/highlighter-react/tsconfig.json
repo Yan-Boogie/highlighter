@@ -5,5 +5,5 @@
     "rootDir": "./src",
     "outDir": "./lib"
   },
-  "references": [{ "path": "../highlighter" }]
+  "references": [{ "path": "../highlighter-core" }]
 }
