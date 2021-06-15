@@ -12,7 +12,9 @@
           "jsx": true,
           "legacyDecorators": true
         },
-        "project": "./tsconfig.eslint.json"
+        "project": [
+          "./tsconfig.base.json"
+        ]
     },
     "plugins": [
         "react",

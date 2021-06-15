@@ -10,6 +10,10 @@
     "react-dom": ">=16.8.0"
   },
   "dependencies": {
+    "lodash": "^4.17.21",
     "tiny-invariant": "1.0.6"
+  },
+  "devDependencies": {
+    "@types/lodash": "^4.14.170"
   }
 }

@@ -28,15 +28,8 @@ const Leaf = ({ attributes, children, leaf }) => (
  * Input Value structure exported by "Highlighter" lib
  *
  */
-interface Descendant {
-  type: string /** Header | Paragraph */;
-  children: {
-    text: string;
-    highlighted?: boolean;
-  }[];
-}
 
-const initialValue: Descendant[] = [
+const initialValue = [
   {
     type: 'paragraph',
     children: [

@@ -1,39 +1,35 @@
 import React, { useMemo } from 'react';
 import invariant from 'tiny-invariant';
 
-import { HighlighterContext } from '../hooks';
+import { HighlighterCoreContext } from '../hooks';
 
 /**
  * @todo
  * MOCK types -> change to 'highlighter-core' package
  */
-import type { HighlightEditor, Descendant, Commons } from '../mock/interfaces';
+import type { HighlighterCore, Descendant } from '../mock/interfaces';
 
 export interface HighlighterProps {
-  editor: HighlightEditor;
+  core: HighlighterCore;
   children: React.ReactNode;
   onChange: (value: Descendant[]) => void;
-  commons: Commons;
 }
 
 function Highlighter(props: HighlighterProps) {
   const {
-    editor, children, onChange, commons, ...rest
+    core, children, onChange, ...rest
   } = props;
 
-  const context: [HighlightEditor] = useMemo(() => {
-    /** Type-Guard for editor & value, using invariant */
-    invariant(
-      commons.Editor.isEditor(editor),
-      `[Highlighter] editor is invalid! you passed: ${JSON.stringify(editor)}`,
-    );
+  const context: [HighlighterCore] = useMemo(() => {
+    /** Type-Guard for core & value, using invariant */
+    invariant(core.commons.Editor.isEditor(core), `[Highlighter] core is invalid! you passed: ${JSON.stringify(core)}`);
 
-    Object.assign(editor, rest);
+    Object.assign(core, rest);
 
-    return [editor];
-  }, [commons, editor, rest]);
+    return [core];
+  }, [core, rest]);
 
-  return <HighlighterContext.Provider value={context}>{children}</HighlighterContext.Provider>;
+  return <HighlighterCoreContext.Provider value={context}>{children}</HighlighterCoreContext.Provider>;
 }
 
 export default Highlighter;
