@@ -22,7 +22,7 @@ function useChildren(props: UseChildrenProps) {
      * 尋找屬性注入的測試替代方案
      */
     // const range = highlighterCore.range(/** new Location(p) */) as Range;
-    // const sel = selection && range.intersaction(selection);
+    // const sel = selection && range.intersection(selection);
 
     children.push({
       key,

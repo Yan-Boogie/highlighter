@@ -33,7 +33,7 @@ export interface Range {
   /**
    * Get the intersection of a range with another.
    */
-  intersaction: (another: Range) => Range | null;
+  intersection: (another: Range) => Range | null;
 }
 export interface Path {
   numbers: number[];
