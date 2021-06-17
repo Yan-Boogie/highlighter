@@ -5,6 +5,12 @@
   "main": "dist/index.js",
   "module": "dist/index.es.js",
   "types": "dist/index.d.ts",
+  "umd": "dist/slate-react.js",
+  "umdMin": "dist/slate-react.min.js",
+  "sideEffects": false,
+  "files": [
+    "dist/"
+  ],
   "scripts": {
     "test": "jest",
     "test:coverage": "jest --coverage"
@@ -19,5 +25,9 @@
   },
   "devDependencies": {
     "@types/lodash": "^4.14.170"
+  },
+  "umdGlobals": {
+    "react": "React",
+    "slate": "Slate"
   }
 }
