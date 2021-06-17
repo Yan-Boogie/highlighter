@@ -1,5 +1,6 @@
 import React, { useMemo } from 'react';
 import invariant from 'tiny-invariant';
+import type {} from 'highlighter-core';
 
 import { HighlighterCoreContext } from '../hooks';
 

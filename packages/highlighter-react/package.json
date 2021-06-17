@@ -1,6 +1,6 @@
 {
   "name": "highlighter-react",
-  "version": "1.0.0",
+  "version": "0.0.0",
   "license": "MIT",
   "main": "dist/index.js",
   "module": "dist/index.es.js",
@@ -17,11 +17,13 @@
   },
   "peerDependencies": {
     "react": ">=16.8.0",
-    "react-dom": ">=16.8.0"
+    "react-dom": ">=16.8.0",
+    "highlighter-core": ">=0.0.0"
   },
   "dependencies": {
     "lodash": "^4.17.21",
-    "tiny-invariant": "1.0.6"
+    "tiny-invariant": "1.0.6",
+    "highlighter-core": "0.0.0"
   },
   "devDependencies": {
     "@types/lodash": "^4.14.170"

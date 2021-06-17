@@ -25,4 +25,6 @@ const methodsGateway: IMethodsGateway = <T extends MethodTypes>(methodType: T, m
   }
 };
 
-export default methodsGateway;
+export default function createMethodsGateway() {
+  return methodsGateway;
+}
