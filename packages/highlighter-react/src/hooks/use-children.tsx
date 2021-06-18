@@ -1,7 +1,8 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import { useHighlighterCore } from './use-highlighter-core';
+import type { Ancestor, Range } from 'highlighter-core';
 
-import { Ancestor, Range } from '../mock/interfaces';
+import { useHighlighterCore } from './use-highlighter-core';
+import { useMethodsGateway } from './use-methods-gateway';
 
 export interface UseChildrenProps {
   node: Ancestor;

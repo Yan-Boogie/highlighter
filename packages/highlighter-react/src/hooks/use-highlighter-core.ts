@@ -1,10 +1,6 @@
 import { createContext, useContext } from 'react';
 
-/**
- * @todo
- * MOCK types -> change to 'highlighter-core' package
- */
-import type { HighlighterCore } from '../mock/interfaces';
+import type { Core as HighlighterCore } from 'highlighter-core';
 
 export const HighlighterCoreContext = createContext<[HighlighterCore] | null>(null);
 

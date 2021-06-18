@@ -1,7 +1,8 @@
 import { coreMethods } from './interfaces';
 import type { ICoreMethods, IRangeMethods } from './interfaces';
+import * as weakMaps from './utils/weak-maps';
 
-type MethodTypes = 'CORE' | 'RANGE';
+type MethodTypes = 'CORE' | 'RANGE' | 'WEAK_MAPS';
 
 type Methodsof<T> = {
   [Key in keyof T]: T[Key];
@@ -10,6 +11,7 @@ type Methodsof<T> = {
 type Methods = {
   CORE: Methodsof<ICoreMethods>;
   RANGE: Methodsof<IRangeMethods>;
+  WEAK_MAPS: Methodsof<typeof weakMaps>;
 };
 
 export interface IMethodsGateway {
@@ -20,11 +22,13 @@ const methodsGateway: IMethodsGateway = <T extends MethodTypes>(methodType: T, m
   switch (methodType) {
     case 'CORE':
       return coreMethods[`${methodName}`];
+
+    case 'WEAK_MAPS':
+      return weakMaps[`${methodName}`];
+
     default:
       return null;
   }
 };
 
-export default function createMethodsGateway() {
-  return methodsGateway;
-}
+export const createMethodsGateway = (): IMethodsGateway => methodsGateway;

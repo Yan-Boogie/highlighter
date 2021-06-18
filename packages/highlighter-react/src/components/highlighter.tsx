@@ -1,8 +1,10 @@
 import React, { useMemo } from 'react';
 import invariant from 'tiny-invariant';
 import type { IMethodsGateway, Core as HighlighterCore, Descendant } from 'highlighter-core';
+import { createMethodsGateway } from 'highlighter-core';
+import { HighlighterCoreContext, MethodsGatewayContext } from '../hooks';
 
-import { HighlighterCoreContext } from '../hooks';
+const methodsGateway = createMethodsGateway();
 
 export interface HighlighterProps {
   core: HighlighterCore;
@@ -25,7 +27,11 @@ function Highlighter(props: HighlighterProps) {
     return [core];
   }, [core, rest, methods]);
 
-  return <HighlighterCoreContext.Provider value={context}>{children}</HighlighterCoreContext.Provider>;
+  return (
+    <HighlighterCoreContext.Provider value={context}>
+      <MethodsGatewayContext.Provider value={methodsGateway}>{children}</MethodsGatewayContext.Provider>
+    </HighlighterCoreContext.Provider>
+  );
 }
 
 export default Highlighter;

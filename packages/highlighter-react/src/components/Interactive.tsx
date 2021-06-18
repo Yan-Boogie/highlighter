@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import React, { useRef, useCallback } from 'react';
 import throttle from 'lodash/throttle';
 import { useHighlighterCore, useIsomorphicLayoutEffect, useRenders } from '../hooks';
@@ -24,11 +25,22 @@ function Interactive(props: InteractiveProps) {
   };
   const ref = useRef<HTMLDivElement>(null);
 
+  useIsomorphicLayoutEffect(() => {
+    /**
+     * @todo
+     * CORE updates
+     */
+  });
+
   const onDOMSelectionChange = useCallback(() => {
     throttle(() => {
-      highlighterCore.modifySelection();
+      /**
+       * @todo
+       * highlighterCore.modifySelection();
+       */
+      console.log('DOM SELECTION CHANGED!!\n');
     }, 100);
-  }, [highlighterCore]);
+  }, []);
 
   useIsomorphicLayoutEffect(() => {
     const { window } = highlighterCore;
