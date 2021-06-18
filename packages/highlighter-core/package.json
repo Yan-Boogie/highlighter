@@ -14,5 +14,8 @@
   "scripts": {
     "test": "jest",
     "test:coverage": "jest --coverage"
+  },
+  "dependencies": {
+    "is-plain-object": "^3.0.0"
   }
 }
