@@ -7,3 +7,4 @@ export * from './range';
 export * from './text';
 export * from './point';
 export * from './operation';
+export * from './position';
