@@ -12,12 +12,14 @@ export interface UseChildrenProps {
 function useChildren(props: UseChildrenProps) {
   const { node, selection = null } = props;
   const highlighterCore = useHighlighterCore();
-  const path = highlighterCore.findPath(node);
+  const methodsGateway = useMethodsGateway();
+
+  const path = methodsGateway('CORE', 'findPath')(node);
   const children = [];
 
   node.children.forEach((descendant, idx) => {
     const p = path.numbers.concat(idx);
-    const key = highlighterCore.findKey(descendant);
+    const key = methodsGateway('CORE', 'findKey')(descendant);
     /**
      * @todo
      * 尋找屬性注入的測試替代方案

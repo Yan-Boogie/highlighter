@@ -18,7 +18,10 @@ export interface IMethodsGateway {
   <T extends MethodTypes, U extends keyof Methods[T]>(methodType: T, methodName: U): Methods[T][U];
 }
 
-const methodsGateway: IMethodsGateway = <T extends MethodTypes>(methodType: T, methodName: keyof Methods[T]) => {
+const methodsGateway: IMethodsGateway = <T extends MethodTypes, U extends keyof Methods[T]>(
+  methodType: T,
+  methodName: U,
+) => {
   switch (methodType) {
     case 'CORE':
       return coreMethods[`${methodName}`];
