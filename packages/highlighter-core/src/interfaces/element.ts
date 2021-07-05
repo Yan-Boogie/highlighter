@@ -7,3 +7,5 @@ export interface IElementMethods {
   isElementProps: (props: any) => props is Partial<Element>;
   matches: (element: Element, props: Partial<Element>) => boolean;
 }
+
+export const elementMethods: IElementMethods = {};

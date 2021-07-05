@@ -6,3 +6,5 @@ export interface ITextMethods {
   isTextList: (value: any) => value is Text[];
   isTextProps: (props: any) => props is Partial<Text>;
 }
+
+export const textMethods: ITextMethods = {};
