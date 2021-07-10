@@ -18,13 +18,9 @@ function useChildren(props: UseChildrenProps) {
   const children = [];
 
   node.children.forEach((descendant, idx) => {
-    const p = path.numbers.concat(idx);
+    const p = path.concat(idx);
     const key = methodsGateway('CORE', 'findKey')(descendant);
-    /**
-     * @todo
-     * 尋找屬性注入的測試替代方案
-     */
-    // const range = highlighterCore.range(/** new Location(p) */) as Range;
+    const range = highlighterCore.range(/** new Location(p) */) as Range;
     // const sel = selection && range.intersection(selection);
 
     children.push({
