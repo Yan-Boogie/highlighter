@@ -1,5 +1,5 @@
 {
   "extends": "./tsconfig.base.json",
   "files": [],
-  "references": [{ "path": "./packages/highlighter-core" }, { "path": "./packages/highlighter-react" }]
+  "references": [{ "path": "./packages/highlighter-core" }, { "path": "./packages/highlighter-component" }]
 }

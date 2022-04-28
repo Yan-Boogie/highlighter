@@ -9,9 +9,6 @@ module.exports = {
     },
   },
   moduleFileExtensions: ['js', 'json', 'ts', 'tsx'],
-  moduleNameMapper: {
-    'highlighter-core$': '<rootDir>/../highlighter-core/src',
-  },
   testEnvironment: 'jsdom',
   testPathIgnorePatterns: ['/node_modules/'],
   collectCoverageFrom: ['src/**/*', '!**/index.ts'],

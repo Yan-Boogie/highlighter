@@ -15,7 +15,7 @@
     "lint:ts": "eslint . --config .eslintrc --ext .js,.ts",
     "test": "lerna run test --stream --sort",
     "test:coverage": "lerna run test:coverage --stream --sort",
-    "react:test": "yarn workspace highlighter-react test",
+    "react:test": "yarn workspace highlighter-component test",
     "react:test:coverage": "yarn react:test --coverage",
     "serve": "cd ./site && next -p 3001",
     "start": "yarn serve"
