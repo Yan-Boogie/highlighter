@@ -12,7 +12,7 @@ export interface IHighlighterSlate {
   children: React.ReactNode;
 }
 
-const HighlighterSlate = (props: IHighlighterSlate) => {
+export const HighlighterSlate = (props: IHighlighterSlate) => {
   const {
     value,
     onChange,
@@ -33,5 +33,3 @@ const HighlighterSlate = (props: IHighlighterSlate) => {
     </ComponentsContext.Provider>
   );
 };
-
-export default HighlighterSlate;

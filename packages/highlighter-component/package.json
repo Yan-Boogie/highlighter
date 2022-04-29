@@ -4,8 +4,8 @@
   "main": "dist/index.js",
   "module": "dist/index.es.js",
   "types": "dist/index.d.ts",
-  "umd": "dist/slate.js",
-  "umdMin": "dist/slate.min.js",
+  "umd": "dist/highlighter-component.js",
+  "umdMin": "dist/highlighter-component.min.js",
   "sideEffects": false,
   "files": [
     "dist/"

@@ -9,7 +9,7 @@ import { terser } from 'rollup-plugin-terser';
 import { startCase } from 'lodash';
 
 import Core from './packages/highlighter-core/package.json';
-import React from './packages/highlighter-react/package.json';
+import Component from './packages/highlighter-component/package.json';
 
 function configure(pkg, env, target) {
   const isProd = env === 'production';
@@ -151,4 +151,4 @@ function factory(pkg, options = {}) {
  * Config.
  */
 
-export default [...factory(Core), ...factory(React)];
+export default [...factory(Core), ...factory(Component)];

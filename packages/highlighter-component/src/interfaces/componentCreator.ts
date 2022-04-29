@@ -1,6 +1,18 @@
-import { Heading, IElement } from '../components';
+import {
+  Heading,
+  Paragraph,
+  Divider,
+  Link,
+  List,
+  IElement,
+} from '../components';
 
-export type ExtendedTypes = Heading.ElementType;
+export type ExtendedTypes =
+  | Heading.ElementType
+  | Paragraph.ElementType
+  | Divider.ElementType
+  | Link.ElementType
+  | List.ElementType;
 
 export type ComponentCreater<T extends ExtendedTypes> = {
   type: T;

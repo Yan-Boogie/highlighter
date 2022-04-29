@@ -39,7 +39,7 @@ const createHeading6 = (): ComponentCreater<ElementType> => ({
   component: Heading6,
 });
 
-export const createHeading = (): ComponentCreater<ElementType>[] => [
+export const createHeadings = (): ComponentCreater<ElementType>[] => [
   createHeading1(),
   createHeading2(),
   createHeading3(),
