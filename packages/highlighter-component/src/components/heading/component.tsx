@@ -1,9 +1,7 @@
 import React from 'react';
-import { RenderElementProps } from 'slate-react';
+import type { IElement } from '../common';
 
-export interface IHeading extends Pick<RenderElementProps, 'attributes'> {
-  children: React.ReactNode;
-}
+export type IHeading = IElement;
 
 export const Heading1 = (props: IHeading) => {
   const { attributes, children } = props;
