@@ -1,11 +1,10 @@
-import type {
-  ComponentCreator,
-  ExtendedTypes,
-  ComponentCreatorWithToolbar,
-} from './interfaces/creators';
+import type { ComponentCreator, ExtendedTypes, ComponentCreatorWithToolbar } from './interfaces/creators';
 
-export const createComposedComponent =
-(...rest: ComponentCreator<ExtendedTypes>[]): ComponentCreator<ExtendedTypes>[] => ([...rest]);
+/**
+ * @todo
+ * Remove 'any' type
+ */
+export const createComposedComponent = (...rest: any): ComponentCreator<ExtendedTypes>[] => rest.flat(2);
 
 export const withToolbar = (
   composed: ComponentCreator<ExtendedTypes>[],

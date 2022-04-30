@@ -1,4 +1,3 @@
-
 export * from 'slate';
 
 export * from './highlighterSlate';
@@ -9,5 +8,6 @@ export * from './createHighlighterSlate';
 export * from './createComponents';
 
 export * from './interfaces/creators';
+export * from './interfaces/customTypes';
 
 export * from './components';

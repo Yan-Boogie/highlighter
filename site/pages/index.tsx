@@ -1,14 +1,5 @@
-import { useEffect } from 'react';
-import { useRouter } from 'next/router';
+import Slate from '../components/slate';
 
-const Home = () => {
-  const router = useRouter();
-
-  useEffect(() => {
-    router.replace('/examples');
-  });
-
-  return null;
-};
+const Home = () => <Slate />;
 
 export default Home;
