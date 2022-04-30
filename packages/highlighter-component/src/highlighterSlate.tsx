@@ -2,13 +2,13 @@ import React from 'react';
 import { Descendant } from 'slate';
 import { Slate, ReactEditor } from 'slate-react';
 import { ComponentsContext } from './context';
-import type { ComponentCreater, ExtendedTypes } from './interfaces/componentCreator';
+import type { ComponentCreatorUnion } from './interfaces/creators';
 
 export interface IHighlighterSlate {
   value: Descendant[];
   onChange: (v: Descendant[]) => void;
   editor: ReactEditor;
-  componentCreator: ComponentCreater<ExtendedTypes>[];
+  componentCreator: ComponentCreatorUnion[];
   children: React.ReactNode;
 }
 

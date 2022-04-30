@@ -1,3 +1,12 @@
-import type { ComponentCreater, ExtendedTypes } from './interfaces/componentCreator';
+import type {
+  ComponentCreator,
+  ExtendedTypes,
+  ComponentCreatorWithToolbar,
+} from './interfaces/creators';
 
-export const createComposedComponent = (...rest: ComponentCreater<ExtendedTypes>[]) => rest;
+export const createComposedComponent =
+(...rest: ComponentCreator<ExtendedTypes>[]): ComponentCreator<ExtendedTypes>[] => ([...rest]);
+
+export const withToolbar = (
+  composed: ComponentCreator<ExtendedTypes>[],
+): ComponentCreatorWithToolbar<ExtendedTypes>[] => composed.map((el) => el.withToolbar());

@@ -8,6 +8,6 @@ export * from './highlighterEditor';
 export * from './createHighlighterSlate';
 export * from './createComponents';
 
-export * from './interfaces/componentCreator';
+export * from './interfaces/creators';
 
 export * from './components';

@@ -1,4 +1,4 @@
 import React from 'react';
-import type { ComponentCreater, ExtendedTypes } from './interfaces/componentCreator';
+import type { ComponentCreator, ExtendedTypes } from './interfaces/creators';
 
-export const ComponentsContext = React.createContext<ComponentCreater<ExtendedTypes>[]>([]);
+export const ComponentsContext = React.createContext<ComponentCreator<ExtendedTypes>[]>([]);

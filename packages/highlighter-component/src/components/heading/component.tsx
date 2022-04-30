@@ -32,33 +32,3 @@ export const Heading3 = (props: IHeading) => {
     </h3>
   );
 };
-
-export const Heading4 = (props: IHeading) => {
-  const { attributes, children } = props;
-
-  return (
-    <h4 {...attributes}>
-      {children}
-    </h4>
-  );
-};
-
-export const Heading5 = (props: IHeading) => {
-  const { attributes, children } = props;
-
-  return (
-    <h5 {...attributes}>
-      {children}
-    </h5>
-  );
-};
-
-export const Heading6 = (props: IHeading) => {
-  const { attributes, children } = props;
-
-  return (
-    <h6 {...attributes}>
-      {children}
-    </h6>
-  );
-};
