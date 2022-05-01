@@ -62,7 +62,7 @@ export const useEventEmitter = () => {
 };
 
 export const usePosititonListener = (channel: IChannel) => {
-  const [position, setPosition] = useState<IPosition>(null);
+  const [position, setPosition] = useState<IPosition | null>(null);
   const ref = useRef<HTMLDivElement | null>();
 
   useEffect(() => {
@@ -71,8 +71,8 @@ export const usePosititonListener = (channel: IChannel) => {
     const element = ref.current;
 
     const eventHandler = (eventPackage: IEventPackage) => {
-      const top = `${eventPackage.top + window.pageYOffset - element.offsetHeight}px`;
-      const left = '0px';
+      const top = `${eventPackage.top + window.pageYOffset - element.offsetHeight + 6}px`;
+      const left = '-30px';
 
       setPosition((prev) => {
         if (!prev) return { top, left };
