@@ -1,10 +1,13 @@
 import React from 'react';
+import { cx } from '@emotion/css';
 import type { Range, NodeEntry } from 'slate';
 import {
   Editable, RenderElementProps, RenderLeafProps, RenderPlaceholderProps,
 } from 'slate-react';
+import { classNames } from './classes';
+import { Toolbar, useEventEmitter } from './toolbar';
 
-export interface IHighlighterEditor {
+interface ISlateEditor extends React.TextareaHTMLAttributes<HTMLDivElement> {
   decorate?: (entry: NodeEntry) => Range[];
   onDOMBeforeInput?: (event: InputEvent) => void;
   placeholder?: string;
@@ -17,12 +20,22 @@ export interface IHighlighterEditor {
   as?: React.ElementType;
 }
 
+export interface IHighlighterEditor extends ISlateEditor {
+  wrapperClassName?: string;
+  editorClassName?: string;
+}
+
 export const HighlighterEditor = (props: IHighlighterEditor) => {
-  const { ...rest } = props;
+  const { wrapperClassName, editorClassName, ...rest } = props;
+
+  const wrapperRef = useEventEmitter();
 
   return (
-    <>
-      <Editable {...rest} />
-    </>
+    <div ref={wrapperRef} id="Highlighter-Editor" className={cx(wrapperClassName, classNames.editorWrapper)}>
+      {/* Deal with both Listener and UI composed */}
+      <Toolbar />
+      {/* <HoveringToolbar /> */}
+      <Editable className={editorClassName} {...rest} />
+    </div>
   );
 };
