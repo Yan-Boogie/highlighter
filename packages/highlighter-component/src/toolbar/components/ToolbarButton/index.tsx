@@ -12,7 +12,7 @@ const ToolbarButton = (props: IToolbarButton) => {
   const { children, onClick, className = '' } = props;
 
   return (
-    <button className={cx(className, classes.button)} type="button" onClick={onClick}>
+    <button className={cx(classes.button, className)} type="button" onClick={onClick}>
       {children}
     </button>
   );

@@ -15,12 +15,10 @@ export interface IHighlighterSlate {
 
 export const HighlighterSlate = (props: IHighlighterSlate) => {
   const {
-    value,
-    onChange,
-    editor,
-    creatorUnion,
-    children,
+    value, onChange, editor, creatorUnion, children,
   } = props;
+
+  console.log('value-->\n', value);
 
   if (!creatorUnion.length) throw new Error('Please add at least one creator');
 
@@ -29,11 +27,7 @@ export const HighlighterSlate = (props: IHighlighterSlate) => {
   return (
     <ComponentsContext.Provider value={componentCreator}>
       <ToolbarContext.Provider value={toolbarCreator}>
-        <Slate
-          editor={editor}
-          value={value}
-          onChange={(v) => onChange(v)}
-        >
+        <Slate editor={editor} value={value} onChange={(v) => onChange(v)}>
           {children}
         </Slate>
       </ToolbarContext.Provider>

@@ -1,12 +1,16 @@
+/* eslint-disable max-len */
 import type {
-  ToolbarCreator, ComponentCreatorUnion, ComponentCreatorWithToolbar, ExtendedTypes,
+  ToolbarCreator,
+  ComponentCreatorUnion,
+  ComponentCreatorWithToolbar,
+  ExtendedTypes,
 } from '../interfaces/creators';
 
-const withToolbar = (
-  list: ComponentCreatorUnion[],
-): list is ComponentCreatorWithToolbar<ExtendedTypes>[] => list[0] && 'toolbarIcon' in list[0];
+const withToolbar = (list: ComponentCreatorUnion[]): list is ComponentCreatorWithToolbar<ExtendedTypes>[] => list[0] && 'toolbarIcon' in list[0];
 
-export const getCreatorsBundle = (creators: ComponentCreatorUnion[]): {
+export const getCreatorsBundle = (
+  creators: ComponentCreatorUnion[],
+): {
   componentCreator: ComponentCreatorUnion[];
   toolbarCreator: ToolbarCreator<ExtendedTypes>[];
 } => {
@@ -24,6 +28,7 @@ export const getCreatorsBundle = (creators: ComponentCreatorUnion[]): {
     toolbarCreator: creators.map((el) => ({
       format: el.type,
       icon: el.toolbarIcon,
+      type: el.toolbarType,
     })),
   };
 };

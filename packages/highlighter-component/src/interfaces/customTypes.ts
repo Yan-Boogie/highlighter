@@ -10,6 +10,13 @@ export type CustomEditor = BaseEditor & ReactEditor & HistoryEditor;
 
 export type CustomElement = Heading.Element | Paragraph.Element | Divider.Element | Link.Element | List.Element;
 
+export type ElementTypes =
+  | Heading.ElementType
+  | Paragraph.ElementType
+  | Divider.ElementType
+  | Link.ElementType
+  | List.ElementType;
+
 declare module 'slate' {
   interface CustomTypes {
     Editor: CustomEditor;
