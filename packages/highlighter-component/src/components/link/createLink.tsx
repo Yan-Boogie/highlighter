@@ -8,6 +8,6 @@ export const createLink = (): ComponentCreator<ElementType> => ({
   type: ELEMENT_TYPE,
   component: Link,
   withToolbar() {
-    return { ...this, toolbarIcon: <Icon icon={LinkIcon} />, toolbarType: 'FLOAT' };
+    return { ...this, toolbarIcon: <Icon icon={LinkIcon} size={1.5} />, toolbarType: 'FLOAT' };
   },
 });

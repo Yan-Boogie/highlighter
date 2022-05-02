@@ -6,12 +6,13 @@ import { Editor, Element as SlateElement, Transforms } from 'slate';
 import { useSlate } from 'slate-react';
 import { ROW_EVENT } from './constants/eventEmitter';
 import { usePosititonListener } from './hooks/useEventEmitter';
-import ToolbarButton from './components/ToolbarButton';
+import ToolbarButton from './components/toolbarButton';
 import { Icon, Add } from '../icons';
 import { classes } from './classes';
 import { ToolbarContext } from '../context';
 import { LIST_TYPES } from './constants';
 import type { ElementTypes } from '../interfaces/customTypes';
+import type { BlockToolbarCreator } from '../interfaces/creators';
 
 export const Toolbar = () => {
   const { position, ref } = usePosititonListener(ROW_EVENT);
@@ -19,7 +20,10 @@ export const Toolbar = () => {
   const toolbarCreators = useContext(ToolbarContext);
   const editor = useSlate();
 
-  const blockToolbars = useMemo(() => toolbarCreators.filter((el) => el.type === 'BLOCK'), [toolbarCreators]);
+  const blockToolbars: BlockToolbarCreator[] = useMemo(
+    () => toolbarCreators.filter((el) => el.type === 'BLOCK') as BlockToolbarCreator[],
+    [toolbarCreators],
+  );
 
   const isBlockActive = (format: ElementTypes) => {
     const [match] = Editor.nodes(editor, {

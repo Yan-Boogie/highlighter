@@ -29,14 +29,23 @@ export const useEventEmitter = () => {
         return;
       }
 
-      if (Range.isCollapsed(selection)) {
+      if (Range.isCollapsed(selection) || Editor.string(editor, selection) === '') {
         // Get the root 'Element' of selection in slate tree
         const [slateNode] = Editor.node(editor, Path.ancestors(Editor.path(editor, selection, { edge: 'start' }))[1]);
 
         const rect = ReactEditor.toDOMNode(editor, slateNode).getBoundingClientRect();
 
         eventEmitter.emit(ROW_EVENT, rect);
+        eventEmitter.emit(SELECTION_EVENT, null);
+
+        return;
       }
+
+      const domSelection = ReactEditor.getWindow(editor).getSelection();
+      const domRange = domSelection.getRangeAt(0);
+      const rect = domRange.getBoundingClientRect();
+
+      eventEmitter.emit(SELECTION_EVENT, rect);
     };
 
     const mouseupHandler = () => {
@@ -70,11 +79,35 @@ export const usePosititonListener = (channel: IChannel) => {
 
     const element = ref.current;
 
+    const getPosition = (eventPackage: IEventPackage): IPosition => {
+      switch (channel) {
+        case ROW_EVENT: {
+          const top = `${eventPackage.top + window.pageYOffset - element.offsetHeight + 6}px`;
+          const left = '-30px';
+
+          return { top, left };
+        }
+
+        case SELECTION_EVENT: {
+          const top = `${eventPackage.top + window.pageYOffset - element.offsetHeight}px`;
+          const left = `${eventPackage.left + window.pageXOffset - element.offsetWidth / 2 + eventPackage.width / 2}px`;
+
+          return { top, left };
+        }
+
+        default:
+          return null;
+      }
+    };
+
     const eventHandler = (eventPackage: IEventPackage) => {
-      const top = `${eventPackage.top + window.pageYOffset - element.offsetHeight + 6}px`;
-      const left = '-30px';
+      const newPosition = eventPackage && getPosition(eventPackage);
 
       setPosition((prev) => {
+        if (!newPosition) return newPosition;
+
+        const { top, left } = newPosition;
+
         if (!prev) return { top, left };
 
         if (prev.top === top && prev.left === left) return prev;

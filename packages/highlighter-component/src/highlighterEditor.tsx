@@ -5,7 +5,7 @@ import {
   Editable, RenderElementProps, RenderLeafProps, RenderPlaceholderProps,
 } from 'slate-react';
 import { classNames } from './classes';
-import { Toolbar, useEventEmitter } from './toolbar';
+import { Toolbar, useEventEmitter, HoveringToolbar } from './toolbar';
 
 interface ISlateEditor extends React.TextareaHTMLAttributes<HTMLDivElement> {
   decorate?: (entry: NodeEntry) => Range[];
@@ -32,9 +32,8 @@ export const HighlighterEditor = (props: IHighlighterEditor) => {
 
   return (
     <div ref={wrapperRef} id="Highlighter-Editor" className={cx(wrapperClassName, classNames.editorWrapper)}>
-      {/* Deal with both Listener and UI composed */}
       <Toolbar />
-      {/* <HoveringToolbar /> */}
+      <HoveringToolbar />
       <Editable className={editorClassName} {...rest} />
     </div>
   );

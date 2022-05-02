@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { MouseEventHandler } from 'react';
 import { cx } from '@emotion/css';
 import { classes } from './classes';
 
 export interface IToolbarButton {
   children: React.ReactNode;
-  onClick: () => void;
+  onClick: MouseEventHandler<HTMLElement>;
   className?: string;
 }
 
