@@ -2,6 +2,7 @@ import React, { useMemo, useContext, useLayoutEffect } from 'react';
 import { ToolbarContext } from '../context';
 import { classes } from './classes';
 import HoveringToolbarBtn from './components/hoveringToolbarButton';
+import Portal from './components/portal';
 import { SELECTION_EVENT } from './constants/eventEmitter';
 import { usePosititonListener } from './hooks/useEventEmitter';
 import type { LeafToolbarCreator } from '../interfaces/creators';
@@ -32,12 +33,14 @@ export const HoveringToolbar = () => {
   }, [position, ref]);
 
   return (
-    <div className={classes.hoveringToolbar} ref={ref}>
-      {leafToolbars.map((el) => (
-        <HoveringToolbarBtn key={el.format} active={false} onClick={() => console.log('onClick')}>
-          {el.icon}
-        </HoveringToolbarBtn>
-      ))}
-    </div>
+    <Portal>
+      <div className={classes.hoveringToolbar} ref={ref}>
+        {leafToolbars.map((el) => (
+          <HoveringToolbarBtn key={el.format} active={false} onClick={() => console.log('onClick')}>
+            {el.icon}
+          </HoveringToolbarBtn>
+        ))}
+      </div>
+    </Portal>
   );
 };

@@ -89,6 +89,9 @@ export const usePosititonListener = (channel: IChannel) => {
         }
 
         case SELECTION_EVENT: {
+          console.log('eventPackage-->\n', eventPackage);
+          console.log('element-->\n', element);
+
           const top = `${eventPackage.top + window.pageYOffset - element.offsetHeight}px`;
           const left = `${eventPackage.left + window.pageXOffset - element.offsetWidth / 2 + eventPackage.width / 2}px`;
 
