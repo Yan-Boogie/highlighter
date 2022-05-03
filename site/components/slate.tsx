@@ -12,6 +12,9 @@ import {
   Paragraph,
   Link,
   List,
+  Bold,
+  Italic,
+  Underline,
 } from 'highlighter-component';
 
 const initialValue: Descendant[] = [
@@ -48,6 +51,9 @@ const Slate = () => {
       Paragraph.createParagraph(),
       Link.createLink(),
       List.createListModule(),
+      Bold.createBold(),
+      Italic.createItalic(),
+      Underline.createUnderLine(),
     ),
   );
 

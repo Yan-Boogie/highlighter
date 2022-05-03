@@ -8,3 +8,4 @@ export * from './heading3';
 export * from './italic';
 export * from './link';
 export * from './ordered-list';
+export * from './underline';

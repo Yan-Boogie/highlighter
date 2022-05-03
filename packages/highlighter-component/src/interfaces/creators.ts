@@ -1,6 +1,6 @@
 import { ReactNode } from 'react';
 import {
-  Heading, Paragraph, Divider, Link, List, Bold, IElement, ILeaf,
+  Heading, Paragraph, Divider, Link, List, Bold, Italic, Underline, IElement, ILeaf,
 } from '../components';
 
 export type ExtendedElementTypes =
@@ -10,7 +10,7 @@ export type ExtendedElementTypes =
   | Link.ElementType
   | List.ElementType;
 
-export type ExtendedLeafTypes = Bold.LeafType;
+export type ExtendedLeafTypes = Bold.LeafType | Italic.LeafType | Underline.LeafType;
 
 export type ExtendedTypes = ExtendedElementTypes | ExtendedLeafTypes;
 
