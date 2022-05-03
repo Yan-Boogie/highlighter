@@ -11,8 +11,7 @@ import { Icon, Add } from '../icons';
 import { classes } from './classes';
 import { ToolbarContext } from '../context';
 import { LIST_TYPES } from './constants';
-import type { ElementTypes } from '../interfaces/customTypes';
-import type { BlockToolbarCreator } from '../interfaces/creators';
+import type { BlockToolbarCreator, ExtendedElementTypes } from '../interfaces/creators';
 
 export const Toolbar = () => {
   const { position, ref } = usePosititonListener(ROW_EVENT);
@@ -25,7 +24,7 @@ export const Toolbar = () => {
     [toolbarCreators],
   );
 
-  const isBlockActive = (format: ElementTypes) => {
+  const isBlockActive = (format: ExtendedElementTypes) => {
     const [match] = Editor.nodes(editor, {
       match: (n) => !Editor.isEditor(n) && SlateElement.isElement(n) && n.type === format,
     });
@@ -33,10 +32,10 @@ export const Toolbar = () => {
     return !!match;
   };
 
-  const toggleBlock = (format: ElementTypes) => {
+  const toggleBlock = (format: ExtendedElementTypes) => {
     const isActive = isBlockActive(format);
     const isList = LIST_TYPES.includes(format);
-    const getNewProperties = (): ElementTypes => {
+    const getNewProperties = (): ExtendedElementTypes => {
       if (isActive) return 'PARAGRAPH';
 
       if (isList) return 'LIST_ITEM';

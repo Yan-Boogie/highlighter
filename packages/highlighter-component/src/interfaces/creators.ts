@@ -3,14 +3,9 @@ import {
   Heading, Paragraph, Divider, Link, List, Bold, Italic, Underline, IElement, ILeaf,
 } from '../components';
 
-export type ExtendedElementTypes =
-  | Heading.ElementType
-  | Paragraph.ElementType
-  | Divider.ElementType
-  | Link.ElementType
-  | List.ElementType;
+export type ExtendedElementTypes = Heading.ElementType | Paragraph.ElementType | Divider.ElementType | List.ElementType;
 
-export type ExtendedLeafTypes = Bold.LeafType | Italic.LeafType | Underline.LeafType;
+export type ExtendedLeafTypes = Bold.LeafType | Italic.LeafType | Underline.LeafType | Link.ElementType;
 
 export type ExtendedTypes = ExtendedElementTypes | ExtendedLeafTypes;
 

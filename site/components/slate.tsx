@@ -3,6 +3,7 @@ import {
   Descendant,
   HighlighterSlate,
   HighlighterElement,
+  HighlighterLeaf,
   createHighlighterSlate,
   withToolbar,
   createComposedComponent,
@@ -10,7 +11,6 @@ import {
   Divider,
   Heading,
   Paragraph,
-  Link,
   List,
   Bold,
   Italic,
@@ -49,7 +49,6 @@ const Slate = () => {
       Divider.createDivider(),
       Heading.createHeadings(),
       Paragraph.createParagraph(),
-      Link.createLink(),
       List.createListModule(),
       Bold.createBold(),
       Italic.createItalic(),
@@ -59,7 +58,10 @@ const Slate = () => {
 
   return (
     <HighlighterSlate value={value} onChange={(e) => setValue(e)} editor={editor} creatorUnion={creatorsUnion}>
-      <HighlighterEditor renderElement={(props) => <HighlighterElement {...props} />} />
+      <HighlighterEditor
+        renderElement={(props) => <HighlighterElement {...props} />}
+        renderLeaf={(props) => <HighlighterLeaf {...props} />}
+      />
     </HighlighterSlate>
   );
 };

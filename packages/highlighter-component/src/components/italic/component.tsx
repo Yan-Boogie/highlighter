@@ -4,7 +4,7 @@ import type { ILeaf } from '../common';
 export type IItalic = ILeaf;
 
 export const Italic = (props: IItalic) => {
-  const { attributes, children } = props;
+  const { children } = props;
 
-  return <em {...attributes}>{children}</em>;
+  return <em>{children}</em>;
 };
