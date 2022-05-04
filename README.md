@@ -52,6 +52,6 @@ yarn open
 
 ## TODO List
 
-- [] click-away feature
-- [] link element feature
-- [] Divider element feature
+- [ ] click-away feature
+- [ ] link element feature
+- [ ] Divider element feature
