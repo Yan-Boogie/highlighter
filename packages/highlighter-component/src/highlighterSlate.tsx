@@ -18,8 +18,6 @@ export const HighlighterSlate = (props: IHighlighterSlate) => {
     value, onChange, editor, creatorUnion, children,
   } = props;
 
-  console.log('value-->\n', value);
-
   if (!creatorUnion.length) throw new Error('Please add at least one creator');
 
   const { componentCreator, toolbarCreator } = getCreatorsBundle(creatorUnion);

@@ -31,7 +31,7 @@
     "@typescript-eslint/parser": "^4.15.0",
     "commitizen": "^4.2.3",
     "cz-conventional-changelog": "3.3.0",
-    "emotion": "^10.0.9",
+    "@emotion/css": "^11.9.0",
     "eslint": "^7.19.0",
     "eslint-config-airbnb-typescript": "^12.3.1",
     "eslint-plugin-import": "^2.22.1",
