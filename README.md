@@ -16,6 +16,19 @@ It is separated into two packages, which are:
 | [`highlighter-component`](./packages/highlighter-component) | Rich text editor with out of box modules and toolbar components | `Substantially Complete` |
 | [`highlighter-core`](./packages/highlighter-core)           | Provides main highlighter functionalities                       | `In Progress`            |
 
+### highlighter-component built-in modules
+
+| **Module Name** | **Module Type** | **Toolbar Type** | **Status**    |
+| --------------- | --------------- | ---------------- | ------------- |
+| Paragraph       | Element         | Block Toolbar    | `Supported`   |
+| List            | Element         | Block Toolbar    | `Supported`   |
+| Heading         | Element         | Block Toolbar    | `Supported`   |
+| Divider         | Element         | Block Toolbar    | `Unsupported` |
+| Link            | Element         | Float Toolbar    | `Supported`   |
+| Bold            | Mark            | Float Toolbar    | `Supported`   |
+| Italic          | Mark            | Float Toolbar    | `Supported`   |
+| Underline       | Mark            | Float Toolbar    | `Supported`   |
+
 ## Demo
 
 Check out the demo by the following setup instructions:
