@@ -82,18 +82,15 @@ export const usePosititonListener = (channel: IChannel) => {
     const getPosition = (eventPackage: IEventPackage): IPosition => {
       switch (channel) {
         case ROW_EVENT: {
-          const top = `${eventPackage.top + window.pageYOffset - element.offsetHeight + 6}px`;
-          const left = '-30px';
+          const top = `${eventPackage.top - 4}px`;
+          const left = `${eventPackage.left - element.offsetWidth - 32}px`;
 
           return { top, left };
         }
 
         case SELECTION_EVENT: {
-          console.log('eventPackage-->\n', eventPackage);
-          console.log('element-->\n', element);
-
-          const top = `${eventPackage.top + window.pageYOffset - element.offsetHeight}px`;
-          const left = `${eventPackage.left + window.pageXOffset - element.offsetWidth / 2 + eventPackage.width / 2}px`;
+          const top = `${eventPackage.top - element.offsetHeight}px`;
+          const left = `${eventPackage.left - element.offsetWidth / 2 + eventPackage.width / 2}px`;
 
           return { top, left };
         }

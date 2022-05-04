@@ -7,6 +7,7 @@ import { useSlate } from 'slate-react';
 import { ROW_EVENT } from './constants/eventEmitter';
 import { usePosititonListener } from './hooks/useEventEmitter';
 import ToolbarButton from './components/toolbarButton';
+import Portal from './components/portal';
 import { Icon, Add } from '../icons';
 import { classes } from './classes';
 import { ToolbarContext } from '../context';
@@ -71,35 +72,37 @@ export const Toolbar = () => {
   }, [position, ref]);
 
   return (
-    <div className={classes.toolbar} ref={ref}>
-      <ToolbarButton
-        onClick={() => setOpen((prev) => !prev)}
-        className={
-          open
-            ? css`
-                transform: rotate(45deg);
-              `
-            : ''
-        }
-      >
-        <Icon icon={Add} size={5} />
-      </ToolbarButton>
-      {open && (
-        <div className={classes.formatBtnWrapper}>
-          {blockToolbars.map((el) => (
-            <ToolbarButton
-              className={css`
-                margin: 0 9px 0 0;
-                ${isBlockActive(el.format) ? 'background-color: #b5e5a4;' : ''}
-              `}
-              key={el.format}
-              onClick={() => toggleBlock(el.format)}
-            >
-              {el.icon}
-            </ToolbarButton>
-          ))}
-        </div>
-      )}
-    </div>
+    <Portal>
+      <div className={classes.toolbar} ref={ref}>
+        <ToolbarButton
+          onClick={() => setOpen((prev) => !prev)}
+          className={
+            open
+              ? css`
+                  transform: rotate(45deg);
+                `
+              : ''
+          }
+        >
+          <Icon icon={Add} size={5} />
+        </ToolbarButton>
+        {open && (
+          <div className={classes.formatBtnWrapper}>
+            {blockToolbars.map((el) => (
+              <ToolbarButton
+                className={css`
+                  margin: 0 9px 0 0;
+                  ${isBlockActive(el.format) ? 'background-color: #b5e5a4;' : ''}
+                `}
+                key={el.format}
+                onClick={() => toggleBlock(el.format)}
+              >
+                {el.icon}
+              </ToolbarButton>
+            ))}
+          </div>
+        )}
+      </div>
+    </Portal>
   );
 };
