@@ -4,8 +4,8 @@ import {
 import { css, cx } from '@emotion/css';
 
 const classes = {
-  btn: (active: boolean, withBorder: boolean, size = '24px') => css`
-    cursor: pointer;
+  btn: (active: boolean, withBorder: boolean, size = '24px', disabled = false) => css`
+    cursor: ${disabled ? 'not-allowed' : 'pointer'};
     color: ${active ? '#2BCC43' : '#888'};
     border: none;
     ${withBorder ? 'border-bottom: 1px solid #888;' : ''}
@@ -49,7 +49,7 @@ const Button = (props: PropsWithChildren<IButton>) => {
   return (
     <button
       type="button"
-      className={cx(classes.btn(active, withBorder, size), className)}
+      className={cx(classes.btn(active, withBorder, size, disabled), className)}
       onClick={onClick}
       disabled={disabled}
     >
@@ -63,11 +63,16 @@ export interface IModuleMenu {
   setModules: Dispatch<SetStateAction<string[]>>;
 }
 
-const blockMenuList = ['Divider', 'Heading', 'List'] as const;
-const floatMenuList = ['Bold', 'Italic', 'Underline'] as const;
+const blockMenuList = ['Divider', 'Heading', 'List', 'Paragraph'] as const;
+const activeBlockMenuList = ['Heading', 'List', 'Paragraph'] as const;
+const floatMenuList = ['Bold', 'Italic', 'Underline', 'Link'] as const;
+const activeFloatMenuList = ['Bold', 'Italic', 'Underline'] as const;
 
-export const modules = [...blockMenuList, ...floatMenuList, 'Paragraph'] as const;
+export const modules = [...activeBlockMenuList, ...activeFloatMenuList] as const;
 export type ModuleTypes = typeof modules;
+
+const blockMenuBundle = blockMenuList.map((el) => ({ name: el, disabled: el === 'Divider' || el === 'Paragraph' }));
+const floatMenuBundle = floatMenuList.map((el) => ({ name: el, disabled: el === 'Link' }));
 
 const ModuleMenu = (props: IModuleMenu) => {
   const { installedModules, setModules } = props;
@@ -91,20 +96,21 @@ const ModuleMenu = (props: IModuleMenu) => {
       </Button>
       {open && (
         <>
-          {blockMenuList.map((item) => (
+          {blockMenuBundle.map((item) => (
             <Button
               size="16px"
-              key={item}
-              active={!!~installedModules.indexOf(item)}
+              key={item.name}
+              disabled={item.disabled}
+              active={!!~installedModules.indexOf(item.name)}
               onClick={() => setModules((prev) => {
-                const idx = prev.indexOf(item);
+                const idx = prev.indexOf(item.name);
 
-                if (!~idx) return [...prev, item];
+                if (!~idx) return [...prev, item.name];
 
                 return [...prev.slice(0, idx), ...prev.slice(idx + 1)];
               })}
             >
-              {item.toLowerCase()}
+              {item.name}
             </Button>
           ))}
           <div
@@ -115,20 +121,21 @@ const ModuleMenu = (props: IModuleMenu) => {
               margin: 8px 0;
             `}
           />
-          {floatMenuList.map((item) => (
+          {floatMenuBundle.map((item) => (
             <Button
               size="16px"
-              key={item}
-              active={!!~installedModules.indexOf(item)}
+              key={item.name}
+              disabled={item.disabled}
+              active={!!~installedModules.indexOf(item.name)}
               onClick={() => setModules((prev) => {
-                const idx = prev.indexOf(item);
+                const idx = prev.indexOf(item.name);
 
-                if (!~idx) return [...prev, item];
+                if (!~idx) return [...prev, item.name];
 
                 return [...prev.slice(0, idx), ...prev.slice(idx + 1)];
               })}
             >
-              {item.toLowerCase()}
+              {item.name}
             </Button>
           ))}
         </>

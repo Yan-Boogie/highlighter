@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { RenderElementProps } from 'slate-react';
 import { ComponentsContext } from './context';
+import { Paragraph as paragraphModule } from './components';
 
 export type IHighlighterElement = RenderElementProps;
 
@@ -10,13 +11,7 @@ export const HighlighterElement = (props: IHighlighterElement) => {
 
   const idx = components.findIndex((comp) => comp.type === element.type);
 
-  if (!~idx) throw new Error('Unexpected element type');
+  const Component = ~idx ? components[idx].component : paragraphModule.Paragragh;
 
-  const Component = components[idx].component;
-
-  return (
-    <Component attributes={attributes}>
-      {children}
-    </Component>
-  );
+  return <Component attributes={attributes}>{children}</Component>;
 };
