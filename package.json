@@ -13,6 +13,7 @@
     "build:rollup:watch": "yarn build:rollup --watch",
     "commit": "git-cz",
     "lint:ts": "eslint . --config .eslintrc --ext .js,.ts",
+    "open": "open http://localhost:3001",
     "test": "lerna run test --stream --sort",
     "test:coverage": "lerna run test:coverage --stream --sort",
     "react:test": "yarn workspace highlighter-component test",
